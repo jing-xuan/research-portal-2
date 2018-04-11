@@ -1,0 +1,12 @@
+.projDiv{
+  width: 80vw;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 5px 20px;
+  box-shadow: 1px 1px 3px #bfbfbf;
+  background-color: white;
+}
+p{
+  font-family: 'Open Sans';
+}

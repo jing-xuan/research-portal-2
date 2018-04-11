@@ -1,0 +1,42 @@
+#title{
+  margin-left: 10px;
+}
+
+#content{
+  padding-left: 10px;
+}
+
+.details{
+  margin-left: 20px;
+  margin-top: 10px;
+  width: 30vw;
+  display: inline-block;
+}
+
+.sectionHeader{
+  margin-left: 5px;
+  font-size: 1.7em;
+  color: rgb(0, 156, 157);
+  border-bottom: solid rgb(0, 156, 157) 1px;
+}
+
+td{
+  font-family: 'Open Sans';
+  font-size: 1.2em;
+}
+
+td a{
+  color: #888888;
+}
+
+td:first-child{
+  text-align: right;
+  padding-right: 10px;
+  vertical-align: top;
+}
+
+@media screen and (max-width: 800px) {
+  .details{
+    width: 80vw;
+  }
+}

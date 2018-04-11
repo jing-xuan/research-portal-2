@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+  <head>
+    <link rel = 'stylesheet' href = '/stylesheets/style.css'>
+    <link rel = 'stylesheet' href = '/stylesheets/allProj.css'>
+    <title>All projects</title>
+  </head>
+  <body>
+    <% include /JX/CS/research-portal-2/views/partials/header.ejs %>
+    <form id = "searchBar">
+      <div id = "textSearch">
+        <i class="material-icons">search</i>
+        <input type = "text" id = "txtSearch" placeholder = "Search" onkeyup = "filter()">
+      </div>
+      <div id = "filterSearch">
+        <label>Filter:</label>
+        <select name = "subj" id = "subj" onchange = "filter()">
+          <option selected value = "none">All Subjects</option>
+          <option value = "BI">BI</option>
+          <option value = "CM">CM</option>
+          <option value = "CS">CS</option>
+          <option value = "HU">HU</option>
+          <option value = "MA">MA</option>
+          <option value = "PH">PH</option>
+        </select>
+        <select id = "org" onchange = "filter()">
+          <option selected value = "none">All Organisations</option>
+          <%for(var i = 0; i < org.length; i++){%>
+            <option value = "<%= org[i] %>"><%= org[i] %></option>
+          <%}%>
+        </select>
+      </div>
+      <div id = "alumniLink">
+        <a href = "/project/alumni">Alumni Projects</a>
+      </div>
+    </form>
+    <div id = "content">
+      <%for(var i = 0; i < projects.length; i++){%>
+        <div class = "projDiv">
+          <a href = "/project/<%= projects[i][5] %>" ><h1 class = "projTitle"><%= projects[i][0] %></h1></a>
+          <h3 class = "projMembers"><i class="material-icons">account_circle</i>&nbsp;<%= projects[i][4] %></h3>
+          <h3 class = "projDetail"><i class="material-icons">location_city</i>&nbsp;<%= projects[i][1] %>&nbsp;&nbsp;&nbsp;</h3>
+          <h3 class = "projDetail"><i class="material-icons">supervisor_account</i>&nbsp;<%= projects[i][3].toUpperCase() %></h3>
+        </div>
+        <%}%>
+    </div>
+  </body>
+  <script>
+    <%for(var i = 0; i < projects.length; i++){%>
+      <%if(projects[i][2] == "BI"){%>
+        $(".projTitle").eq(<%= i %>).css("borderLeftColor", "green");
+      <%}%>
+      <%if(projects[i][2] == "MA"){%>
+        $(".projTitle").eq(<%= i %>).css("borderLeftColor", "blue");
+      <%}%>
+      <%if(projects[i][2] == "PH"){%>
+        $(".projTitle").eq(<%= i %>).css("borderLeftColor", "red");
+      <%}%>
+      <%if(projects[i][2] == "CM"){%>
+        $(".projTitle").eq(<%= i %>).css("borderLeftColor", "gold");
+      <%}%>
+      <%if(projects[i][2] == "CS"){%>
+        $(".projTitle").eq(<%= i %>).css("borderLeftColor", "grey");
+      <%}%>
+    <%}%>
+    $("h1").mouseover(function(){
+      $(this).css("color", $(this).css("border-left-color"));
+    });
+    $(".projDiv").mouseout(function(){
+      $(this).find("h1").css("color", "black");
+    });
+    $("#subj").change(function(){
+      if($(this).val() == "none"){
+        $(this).css("borderLeftColor", "white");
+      }
+      if($(this).val() == "BI"){
+        $(this).css("borderLeftColor", "green");
+      }
+      if($(this).val() == "MA"){
+        $(this).css("borderLeftColor", "blue");
+      }
+      if($(this).val() == "PH"){
+        $(this).css("borderLeftColor", "red");
+      }
+      if($(this).val() == "CM"){
+        $(this).css("borderLeftColor", "gold");
+      }
+      if($(this).val() == "CS"){
+        $(this).css("borderLeftColor", "grey");
+      }
+      if($(this).val() == "HU"){
+        $(this).css("borderLeftColor", "black");
+      }
+    });
+
+    function filter(){
+      <%for(var i = 0; i <projects.length; i++){%>
+        //check to see if the text search matches
+        var match = false;
+        $(".projDiv").eq(<%= i %>).find('h1').each(function(j, td){
+          if($(this).text().toUpperCase().indexOf($('#txtSearch').val().toUpperCase()) > -1){
+            match = true;
+          }
+        });
+        $(".projDiv").eq(<%= i %>).find('h3').each(function(j, td){
+          if($(this).text().toUpperCase().indexOf($('#txtSearch').val().toUpperCase()) > -1){
+            match = true;
+          }
+        });
+        //check if the subject filter is correct, then check if the organisation filter is correct
+        if(match && ($("#subj").val() == "none" || "<%= projects[i][2] %>" == $("#subj").val()) && ($("#org").val() == "none" || "<%= projects[i][1] %>" == $("#org").val())){
+          $(".projDiv").eq(<%= i %>).show();
+        }else{
+          $(".projDiv").eq(<%= i %>).hide();
+        }
+      <%}%>
+    }
+
+  </script>
+</html>

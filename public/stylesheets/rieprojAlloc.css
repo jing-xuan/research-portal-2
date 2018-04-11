@@ -1,0 +1,37 @@
+#content{
+  padding-left: 20px;
+}
+
+.projDiv{
+  width: 60vw;
+  margin-left: 7vw;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 5px 20px;
+  box-shadow: 1px 1px 3px #bfbfbf;
+  background-color: white;
+}
+
+.projDiv h1{
+  font-family: 'Open Sans';
+  font-size: 1.5em;
+  border-bottom: solid rgb(0, 156, 157) thin;
+  margin-bottom: 5px;
+}
+
+.projDiv .instructions{
+  font-family: 'Open Sans';
+  margin-top: 0px;
+  color: hsl(0, 0%, 40%);
+}
+
+.filename{
+  display: inline;
+}
+
+.projDiv a{
+  font-family: 'Open Sans';
+  padding: 5px;
+  color: rgb(0, 156, 157);
+  cursor: pointer;
+}

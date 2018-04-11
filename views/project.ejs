@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+  <head>
+    <title>
+    </title>
+    <link rel = 'stylesheet' href = '/stylesheets/style.css'>
+    <link rel = 'stylesheet' href = '/stylesheets/proj.css'>
+  </head>
+  <body>
+    <% include /JX/CS/research-portal-2/views/partials/header.ejs %>
+    <div id = "content">
+      <h1 id = "title"><%= projectData['p_title'] %></h1>
+      <div class = "details">
+        <h3 class = "sectionHeader"><i class="material-icons">people</i>&nbsp;People</h3>
+        <table>
+          <tr>
+            <td>Students:</td>
+            <td>
+              <%= projectData['S1_Name'] %></br>
+              <%= projectData['S2_Name'] %></br>
+              <%= projectData['S3_Name'] %></br>
+              <%= projectData['S4_Name'] %></br>
+            </td>
+          </tr>
+          <tr>
+            <td>Mentor:</td>
+            <td>
+              <%= projectData['T1'] %></br>
+              <%= projectData['T2'] %></br>
+            </td>
+          </tr>
+          <tr>
+            <td>Ext. Mentor:</td>
+            <%if(projectData['M1'] == null){%>
+              <td>-<td>
+            <%}else{%>
+              <td>
+                <%= projectData['M1'] %></br>
+                <%= projectData['M2'] %></br>
+                <%= projectData['M3'] %></br>
+              </td>
+            <%}%>
+          </tr>
+        </table>
+      </div>
+      <div class = "details">
+        <h3 class = "sectionHeader"><i class="material-icons">list</i>&nbsp;Details</h3>
+        <table>
+          <tr>
+            <td>Project Code:</td>
+            <td><%= projectData['p_code'] %></td>
+          </tr>
+          <tr>
+            <td>Department:</td>
+            <td><%= projectData['p_dept'] %></td>
+          </tr>
+          <tr>
+            <td>Organisation:</td>
+            <td><%= projectData['p_org'] %></td>
+          </tr>
+        </table>
+      </div>
+      <div class = "details">
+        <h3 class = "sectionHeader"><i class="material-icons">description</i>&nbsp;Documents</h3>
+        <table>
+          <tr><td></td><td><a><i class="material-icons">file_download</i>Download Report</a></td></tr>
+          <tr><td></td><td><a><i class="material-icons">file_download</i>Download Poster</a></td></tr>
+        </table>
+      </div>
+    </div>
+    <script>
+    </script>
+  </body>
+</html>
