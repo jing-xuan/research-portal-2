@@ -5,4 +5,8 @@ var router = express.Router();
 
 router.get('/allocation', rie.allocation);
 
+router.get('/dlAllocTemp', rie.dlAllocTemp);
+
+router.post('/ulProjAlloc', rie.ulProjAlloc);
+
 module.exports = router;

@@ -13,10 +13,16 @@
         <p class = "instructions">
           Download template, and fill in project details, and upload the filled template
         </p>
-        <div>
-          <h3 class = "filename">projectAllocationTemplate.xlsx</h3>
-          &emsp;
-          <button><a>Download</a></button>
+        <div class = "action">
+          <h3>Download Project Template:</h3>
+          <a href = "/rie/dlAllocTemp"><i class="material-icons">file_download</i>projectAllocationTemplate.xlsx</a>
+        </div>
+        <div class = "action">
+          <h3>Upload Project List: &ensp;</h3>
+          <form action="/rie/ulProjAlloc" enctype="multipart/form-data" method="post">
+            <input style = "font-family = 'Open Sans'; color: rgb(0, 156, 157);" type="file" name="upload" multiple id = "fuoP">
+            <input type = "submit" value = "Upload">
+          </form>
         </div>
       </div>
     </div>

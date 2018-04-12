@@ -20,8 +20,9 @@
 }
 
 .projDiv .instructions{
-  font-family: 'Open Sans';
   margin-top: 0px;
+  font-family: 'Open Sans';
+  margin-bottom: 0px;
   color: hsl(0, 0%, 40%);
 }
 
@@ -32,6 +33,16 @@
 .projDiv a{
   font-family: 'Open Sans';
   padding: 5px;
+  text-decoration: none;
   color: rgb(0, 156, 157);
   cursor: pointer;
+}
+
+.projDiv form{
+  display: inline-block;
+}
+
+.action h3{
+  display: inline-block;
+  margin: 10px 0px;
 }
