@@ -1,7 +1,7 @@
 var xlsx = require('node-xlsx');
 var formidable = require('formidable');
 var fs = require('fs');
-var db = require('/JX/CS/research-portal-2/config/db');
+var db = require(__dirname + '/../config/db');
 
 exports.allocation = function(req, res){
   res.render('rieallocation');

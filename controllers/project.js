@@ -1,9 +1,10 @@
-var db = require('/JX/CS/research-portal-2/config/db');
+var db = require(__dirname + '/../config/db');
 
 exports.all = function(req, res){
-  db.query("SELECT * FROM projects", function(err, result){
+  db.query("SELECT * FROM project", function(err, result){
     if(!result) {
       res.sendStatus(500);
+      console.log(err);
     }
     if(result){
     var mentorList = [ "M1", "M2", "M3", "T1", "T2",];
@@ -55,7 +56,7 @@ exports.alumni = function(req, res){
 }
 
 exports.viewOne = function(req, res){
-  db.query("SELECT * FROM projects WHERE p_code = '" + req.params.id + "'", function(err, results){
+  db.query("SELECT * FROM project WHERE p_code = '" + req.params.id + "'", function(err, results){
     if(!results){
       console.log(err);
       res.sendStatus(500);
